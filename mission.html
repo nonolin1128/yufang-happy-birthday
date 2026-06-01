@@ -1,31 +1,102 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow" />
-  <title>任務開始</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>任務開始</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #f5efd8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<style>
 
-    img {
-      width: 100%;
-      max-width: 768px;
-      height: auto;
-      display: block;
-    }
-  </style>
+body{
+    margin:0;
+    min-height:100vh;
+    background:#f5efd8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    text-align:center;
+    width:100%;
+}
+
+img{
+    width:100%;
+    max-width:768px;
+    height:auto;
+    display:block;
+    margin:auto;
+}
+
+.button{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 30px;
+    border:none;
+    border-radius:999px;
+    background:#8bc34a;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 6px 0 #689f38;
+}
+
+.button:active{
+    transform:translateY(3px);
+    box-shadow:0 3px 0 #689f38;
+}
+
+</style>
 </head>
 
 <body>
-  <img src="任務.png" alt="任務開始">
+
+<div class="container">
+
+    <img id="slide" src="1.png" alt="任務圖片">
+
+    <button id="nextBtn" class="button">
+        Next ▶
+    </button>
+
+</div>
+
+<script>
+
+const slides = [
+    "1.png",
+    "2.png",
+    "3.png",
+    "4.png",
+    "5.png",
+    "6.png",
+    "7.png",
+    "任務.png"
+];
+
+let currentIndex = 0;
+
+document
+.getElementById("nextBtn")
+.addEventListener("click", function(){
+
+    currentIndex++;
+
+    if(currentIndex < slides.length){
+        document.getElementById("slide").src =
+        slides[currentIndex];
+    }
+
+    if(currentIndex === slides.length - 1){
+        this.style.display = "none";
+    }
+
+});
+
+</script>
+
 </body>
 </html>
